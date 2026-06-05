@@ -1,4 +1,4 @@
-# DQN-Guided NSGA-II with Honey-Badger Search for Energy-Aware DAG Scheduling ☁️🧠
+# DQN-Guided NSGA-II with Honey-Badger Search for Energy-Aware DAG Scheduling 
 
 This repository contains the implementation and final thesis report for my Senior Design Project (SDP) in Computer Science. It proposes a hybrid multi-objective scheduler for heterogeneous cloud clusters.
 
@@ -22,11 +22,11 @@ The scheduler was evaluated using the **Alibaba Cluster Trace v2018** (100 GB da
 * **Graph Theory:** NetworkX (DAG generation and HEFT upward-rank computation)
 * **Statistical Analysis:** SciPy (Wilcoxon rank-sum and Friedman tests)
 
-## 📁 Repository Structure
+## Repository Structure
 * `scheduler.ipynb`: The complete Jupyter Notebook containing the data preprocessing, multiprocessor environment simulation, classical baselines, and the proposed DQN-NSGA-II-HBO architecture.
 * `DQN_NSGAII_Cloud_Scheduling_Thesis.pdf`: The full academic thesis report detailing the mathematical formulation, reward shaping mechanics, and step-by-step statistical results.
 
-## 💡 Key Architectural Highlight: The 6D State Vector
+## Key Architectural Highlight: The 6D State Vector
 To avoid the "Curse of Dimensionality" and prevent overfitting, the DQN does not observe the raw 500-node DAG. Instead, it observes a compressed 6-dimensional continuous state vector representing the mathematical "health" of the Pareto front:
 1. Normalized Generation Index
 2. Mean Score (Normalized by SLA)
