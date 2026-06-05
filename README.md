@@ -2,7 +2,7 @@
 
 This repository contains the implementation and final thesis report for my Senior Design Project (SDP) in Computer Science. It proposes a hybrid multi-objective scheduler for heterogeneous cloud clusters.
 
-## 🚀 Project Overview
+## Project Overview
 Workflow scheduling on heterogeneous cloud clusters is an NP-hard problem requiring the simultaneous minimization of makespan, cluster energy consumption, and per-task waiting time. State-of-the-art schedulers often optimize a single objective, leading to SLA violations. 
 
 This project solves this by decoupling operator selection from execution:
@@ -10,7 +10,7 @@ This project solves this by decoupling operator selection from execution:
 2. **Deep Q-Network (DQN) Meta-Controller:** A reinforcement learning agent built with PyTorch that learns which search operator (from a pool of 7) best advances the Pareto front.
 3. **Honey-Badger Optimizer (HBO) Executor:** A custom discrete execution engine that applies the DQN's chosen moves (Dig, Honey, Sniff, Jump, Swap).
 
-## 📊 Dataset & Evaluation
+## Dataset & Evaluation
 The scheduler was evaluated using the **Alibaba Cluster Trace v2018** (100 GB dataset). 
 * Tested on workloads ranging from 100 to 500 tasks on a heterogeneous pool of up to 200 processors.
 * **Results:** Achieved a **38–44% makespan reduction** over 6 classical baselines (GA, PSO, GWO, EHO, standalone HBO, and standalone RL) with a **0.0% Deadline Mismatch Ratio** (strict SLA compliance).
