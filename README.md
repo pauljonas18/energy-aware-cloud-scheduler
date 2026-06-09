@@ -35,29 +35,30 @@ To avoid the "Curse of Dimensionality" and prevent overfitting, the DQN does not
 5. Relative Standard Deviation (Normalized by Current Max)
 6. Normalized Stagnation Counter
 
+```mermaid
 graph TD
     %% Define Styles
-    classDef input output fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef input fill:#f9f9f9,stroke:#333,stroke-width:2px;
     classDef ai fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
     classDef loop fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
     classDef eval fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
 
     %% Input & Init
-    A[📦 Alibaba Cluster Trace v2018<br/>Ingest DAGs & Processor Data]:::input
-    B[⚙️ HEFT Initialization<br/>Compute Upward Ranks & Warm-Start]:::input
+    A[ Alibaba Cluster Trace v2018<br/>Ingest DAGs & Processor Data]:::input
+    B[ HEFT Initialization<br/>Compute Upward Ranks & Warm-Start]:::input
 
     A --> B
     B --> C
 
     %% Generational Loop
-    subgraph Generational Loop [NSGA-II Generational Loop: 150 Iterations]
+    subgraph Generational_Loop [NSGA-II Generational Loop: 150 Iterations]
         direction TB
-        C[📊 1. State Observation<br/>Extract 6D Pareto Front Vector]:::ai
-        D[🧠 2. DQN Meta-Controller<br/>PyTorch Predicts Q-values]:::ai
-        E[🦡 3. HBO Executor<br/>Apply: Dig, Honey, Sniff, Jump...]:::loop
-        F[⏱️ 4. Multi-Objective Eval<br/>Makespan, Energy, Wait Time]:::eval
-        G[💰 5. Reward & Learning<br/>Δ Hypervolume & Bellman Update]:::ai
-        H[⚖️ 6. Archive Maintenance<br/>NSGA-II Non-Dominated Sort]:::loop
+        C[ 1. State Observation<br/>Extract 6D Pareto Front Vector]:::ai
+        D[ 2. DQN Meta-Controller<br/>PyTorch Predicts Q-values]:::ai
+        E[ 3. HBO Executor<br/>Apply: Dig, Honey, Sniff, Jump...]:::loop
+        F[ 4. Multi-Objective Eval<br/>Makespan, Energy, Wait Time]:::eval
+        G[ 5. Reward & Learning<br/>Δ Hypervolume & Bellman Update]:::ai
+        H[ 6. Archive Maintenance<br/>NSGA-II Non-Dominated Sort]:::loop
 
         C --> D
         D --> E
@@ -71,4 +72,4 @@ graph TD
     H -->|Max Generations Reached| I
 
     %% Output
-    I[🏆 Final Pareto Front<br/>Schedules with 0% Deadline Mismatch]:::input
+    I[ Final Pareto Front<br/>Schedules with 0% Deadline Mismatch]:::input
